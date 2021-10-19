@@ -1,4 +1,4 @@
-SRCS=ft_isalpha.c
+SRCS=ft_isalpha.c ft_isdigit.c
 OBJS=${SRCS:.c=.o}
 NAME=libft.a
 
