@@ -6,18 +6,21 @@ COLOR_OFF="\x1b[0m"
 
 function test_makefile ()
 {
-	make "$1"
+	test "$VERBOSE" = "true" && make $1 || make -s $1
 	test $? -eq 0 && dispres "Make ${1}" OK && return 0 \
 		|| dispres "Make ${1}" NOK
 }
 function test_fx ()
 {
+	test "$VERBOSE" = "true" \
+	&& echo "Running : gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -o ft_${1}_t"
 	gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -o ft_${1}_t
 	test $? -eq 0 && dispres "Compilation test_${1}" OK \
 		|| dispres "Compilation test_${1}" NOK
 
 	echo "test_${1} results :" && ./ft_${1}_t
-	echo "Removing test_${1}" && rm ft_${1}_t
+	test "$VERBOSE" = "true" && echo "Removing test_${1}"
+	rm ft_${1}_t
 }
 function dispres ()
 {
@@ -26,17 +29,17 @@ function dispres ()
 		echo "Argument manquant" && return 1
 	elif test "$2" = "OK"
 	then
-		echo -e "${GREEN}${1} OK !!!${COLOR_OFF}"
+		echo -e "${GREEN}${1} OK${COLOR_OFF}"
 	elif test "$2" = "NOK"
 	then
-		echo -e "${RED}${1} NOK !!!${COLOR_OFF}"
+		echo -e "${RED}${1} NOK${COLOR_OFF}"
 		exit 1
 	fi
 	return 0
 }
 
-VERBOSE="false"
-RESTRICTED_TEST="false"
+VERBOSE=""
+RESTRICTED_TEST=""
 TESTFILES=ft_*.c
 
 while getopts :vr opt
@@ -59,7 +62,7 @@ done
 shift $(( OPTIND -1 ))
 
 test "$VERBOSE" = "true" && echo "Running in verbose mode"
-test "$RESTRICTED_TEST" = "true" && TESTFILES="$@" && echo "only testing : $@"
+test "$RESTRICTED_TEST" = "true" && TESTFILES="$@" && echo "Only testing : $@"
 
 test_makefile clean
 test_makefile fclean
@@ -71,4 +74,4 @@ do
 	test_fx ${fx:3:-2}
 done
 
-make fclean
+test "$VERBOSE" = "true" && make fclean || make -s fclean
