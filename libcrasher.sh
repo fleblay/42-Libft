@@ -6,21 +6,33 @@ COLOR_OFF="\x1b[0m"
 
 function test_makefile ()
 {
-	test "$VERBOSE" = "true" && make $1 || make -s $1
-	test $? -eq 0 && dispres "Make ${1}" OK && return 0 \
-		|| dispres "Make ${1}" NOK
+	verbose && make $1 || make -s $1
+	if [ $? -eq 0 ]
+	then
+		verbose && dispres "Make ${1}" OK
+		return 0
+	else
+		dispres "Make ${1}" NOK
+		return 1
+	fi
 }
 function test_fx ()
 {
-	test "$VERBOSE" = "true" \
+	verbose \
 	&& echo "Running : gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -o ft_${1}_t"
 	gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -o ft_${1}_t
-	test $? -eq 0 && dispres "Compilation test_${1}" OK \
-		|| dispres "Compilation test_${1}" NOK
-
+	if [ $? -eq 0 ]
+	then
+		verbose && dispres "Compilation test_${1}" OK
+	else
+		dispres "Compilation test_${1}" NOK
+		return 1
+	fi
 	echo "test_${1} results :" && ./ft_${1}_t
-	test "$VERBOSE" = "true" && echo "Removing test_${1}"
+	verbose && echo "Removing test_${1}"
 	rm ft_${1}_t
+	echo $'\n'
+	return 0
 }
 function dispres ()
 {
@@ -33,9 +45,12 @@ function dispres ()
 	elif test "$2" = "NOK"
 	then
 		echo -e "${RED}${1} NOK${COLOR_OFF}"
-		exit 1
 	fi
 	return 0
+}
+function verbose ()
+{
+	[ "$VERBOSE" = "true" ] && return 0 || return 1
 }
 
 VERBOSE=""
@@ -61,7 +76,7 @@ done
 
 shift $(( OPTIND -1 ))
 
-test "$VERBOSE" = "true" && echo "Running in verbose mode"
+verbose && echo "Running in verbose mode"
 test "$RESTRICTED_TEST" = "true" && TESTFILES="$@" && echo "Only testing : $@"
 
 test_makefile clean
@@ -74,4 +89,4 @@ do
 	test_fx ${fx:3:-2}
 done
 
-test "$VERBOSE" = "true" && make fclean || make -s fclean
+verbose && make fclean || make -s fclean
