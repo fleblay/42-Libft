@@ -18,6 +18,17 @@ function test_makefile ()
 }
 function test_fx ()
 {
+	verbose && echo "Running : norminette on ft_${1}.c"
+	norminette "ft_${1}.c" > "norm_${1}_errorlog"
+	if [ $? -eq 0 ]
+	then
+		dispres "Norme check ft_${1}.c" OK
+		rm norm_${1}_errorlog 
+	else
+		dispres "Norme check ft_${1}.c" NOK
+		echo "Check errorlog"
+		return 1
+	fi
 	verbose \
 	&& echo "Running : gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -o ft_${1}_t"
 	gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -o ft_${1}_t
@@ -68,7 +79,7 @@ do
 			;;
 		*)
 			echo "`basename $0` : Bad usage of parameters"
-			echo "`basename $0` [-v] [-r function_names_without_prefix_ft]"
+			echo "`basename $0` [-v] [-r function_names_without_prefix_ft...]"
 			exit 1
 			;;
 	esac

@@ -1,8 +1,8 @@
-SRCS=ft_isalpha.c ft_isdigit.c
-OBJS=${SRCS:.c=.o}
-NAME=libft.a
+SRCS = $(wildcard ft_*.c)
+OBJS = ${SRCS:.c=.o}
+NAME = libft.a
 
-CC=gcc
+CC = gcc
 CFLAGS=-Wall -Wextra -Werror
 
 all : ${NAME}
