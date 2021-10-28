@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlen_t.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 13:19:30 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/10/28 16:45:45 by fle-blay         ###   ########.fr       */
+/*   Created: 2021/10/28 16:00:42 by fle-blay          #+#    #+#             */
+/*   Updated: 2021/10/28 16:10:37 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
+#include <stddef.h>
+#include <stdio.h>
 
-static int	ft_isupper(int c)
+int	main(void)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else
-		return (0);
-}
-
-static int	ft_islower(int c)
-{
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_isalpha(int c)
-{
-	if (ft_isupper(c) || ft_islower(c))
-		return (1);
-	else
-		return (0);
+	printf("ft_strlen('a') : %ld || strlen('a') : %ld\n", ft_strlen("a"), strlen("a"));
+	printf("ft_strlen('abcdef') : %ld || strlen('abcdef') : %ld\n", ft_strlen("abcdef"), strlen("abcdef"));
+	printf("ft_strlen('') : %ld || strlen('') : %ld\n", ft_strlen(""), strlen(""));
+	return (0);
 }

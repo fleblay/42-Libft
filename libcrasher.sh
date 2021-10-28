@@ -16,6 +16,21 @@ function test_makefile ()
 		return 1
 	fi
 }
+function test_header ()
+{
+	verbose && echo "Running : norminette on header libft.h"
+	norminette "libft.h" > "norm_libft_header_errorlog"
+	if [ $? -eq 0 ]
+	then
+		dispres "Norme check header" OK
+		rm norm_libft_header_errorlog 
+		return 0
+	else
+		dispres "Norme check header" NOK
+		echo "Check errorlog"
+		return 1
+	fi
+}
 function test_fx ()
 {
 	verbose && echo "Running : norminette on ft_${1}.c"
@@ -42,7 +57,7 @@ function test_fx ()
 	echo "test_${1} results :" && ./ft_${1}_t
 	verbose && echo "Removing test_${1}"
 	rm ft_${1}_t
-	echo $'\n'
+	echo -n $'\n'
 	return 0
 }
 function dispres ()
@@ -90,6 +105,7 @@ shift $(( OPTIND -1 ))
 verbose && echo "Running in verbose mode"
 test "$RESTRICTED_TEST" = "true" && TESTFILES="$@" && echo "Only testing : $@"
 
+test_header
 test_makefile clean
 test_makefile fclean
 test_makefile all
