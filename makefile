@@ -1,3 +1,4 @@
+#TO-DO : replace wildcard with filenames ????
 SRCS = $(wildcard ft_*.c)
 OBJS = ${SRCS:.c=.o}
 NAME = libft.a

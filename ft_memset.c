@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 14:29:40 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/10/29 11:08:04 by fle-blay         ###   ########.fr       */
+/*   Created: 2021/10/29 10:31:23 by fle-blay          #+#    #+#             */
+/*   Updated: 2021/10/29 11:08:14 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
+void	*ft_memset(void *s, int c, size_t n)
+{
+	long unsigned int	i;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char	*s);
-int		ft_tolower(int c);
-int		ft_toupper(int c);
-void	*ft_memset(void *s, int c, size_t n);
-
-#endif
+	i = 0;
+	while (i < n)
+	{
+		((char *) s)[i] = c;
+		i++;
+	}
+	return (s);
+}
