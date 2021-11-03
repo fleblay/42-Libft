@@ -6,7 +6,7 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:11:20 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/03 15:04:39 by fle-blay         ###   ########.fr       */
+/*   Updated: 2021/11/03 18:00:59 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,5 @@ int	main (void)
 	printf("dest1 by ft_memcpy : %s\n", dest1);
 	printf("dest2 by memcpy : %s\n", dest2);
 
-	/*
-	int		i;
-	i = 0;
-	while (i < 10)
-	{
-		printf("dest1[%d]: %c || dest2[%d]: %c\n",i, dest1[i], i, dest2[i]);
-		i++;
-	}
-	*/
 	return (0);
 }
