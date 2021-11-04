@@ -45,8 +45,8 @@ function test_fx ()
 		return 1
 	fi
 	verbose \
-	&& echo "Running : gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -o ft_${1}_t"
-	gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -o ft_${1}_t
+	&& echo "Running : gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -lbsd -o ft_${1}_t"
+	gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -lbsd -o ft_${1}_t
 	if [ $? -eq 0 ]
 	then
 		verbose && dispres "Compilation test_${1}" OK
