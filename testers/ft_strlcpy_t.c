@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat_t.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy_t.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 11:11:37 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/04 14:56:24 by fle-blay         ###   ########.fr       */
+/*   Created: 2021/11/04 14:51:10 by fle-blay          #+#    #+#             */
+/*   Updated: 2021/11/04 14:56:07 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int main (void)
 	strcpy(buf1,"abcdefghij");
 	strcpy(buf2,"abcdefghij");
 
-	printf("Applying ft_strlcat(buf1,'toto',%lu) && strlcat(buf1,'toto',%lu)\n", i, i);
-	mine = ft_strlcat(buf1,"toto",i);
-	real = strlcat(buf2,"toto",i);
+	printf("Applying ft_strcpy(buf1,'toto',%lu) && strcpy(buf1,'toto',%lu)\n", i, i);
+	mine = ft_strlcpy(buf1,"toto",i);
+	real = strlcpy(buf2,"toto",i);
 
-	printf("Return value of ft_strlcat : %lu. buf1 : %s\n", mine, buf1); 
-	printf("Return value of strlcat : %lu. buf2 : %s\n\n", real, buf2);
+	printf("Return value of ft_strlcpy : %lu. buf1 : %s\n", mine, buf1); 
+	printf("Return value of strlcpy : %lu. buf2 : %s\n\n", real, buf2);
 
 	ft_bzero(buf1,15);
 	ft_bzero(buf2,15);
