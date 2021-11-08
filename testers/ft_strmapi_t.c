@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi_t.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 17:42:15 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/08 18:11:48 by fle-blay         ###   ########.fr       */
+/*   Created: 2021/11/08 18:16:08 by fle-blay          #+#    #+#             */
+/*   Updated: 2021/11/08 18:21:14 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+static char	ft_fx(unsigned int i, char c)
 {
-	unsigned int	i;
-	char			*new;
+	if (i % 2 == 0)
+		return(ft_toupper(c));
+	return (c);
+}
 
-	i = 0;
-	new = NULL;
-	new = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (! new)
-		return (NULL);
-	while (s[i])
-	{
-		new[i] = (*f)(i, s[i]);
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
+int main(void)
+{
+
+	printf("ft_strmapi('abcdefghi', &ft_fx) : %s\n", ft_strmapi("abcdefghi", &ft_fx));
+
+	return (0);
 }

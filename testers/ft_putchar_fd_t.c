@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd_t.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 17:42:15 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/08 18:11:48 by fle-blay         ###   ########.fr       */
+/*   Created: 2021/11/08 18:58:55 by fle-blay          #+#    #+#             */
+/*   Updated: 2021/11/08 19:00:22 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	main(void)
 {
-	unsigned int	i;
-	char			*new;
+	ft_putchar_fd('a',1);
+	ft_putchar_fd('\n',1);
 
-	i = 0;
-	new = NULL;
-	new = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (! new)
-		return (NULL);
-	while (s[i])
-	{
-		new[i] = (*f)(i, s[i]);
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
+	return (0);
 }
