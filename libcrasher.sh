@@ -110,6 +110,7 @@ test_makefile clean
 test_makefile fclean
 test_makefile all
 test_makefile re
+test_makefile bonus
 
 for fx in $TESTFILES
 do
