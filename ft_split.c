@@ -6,7 +6,7 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:35:10 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/08 15:48:41 by fle-blay         ###   ########.fr       */
+/*   Updated: 2021/11/10 15:19:40 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ char	**ft_split(char const *s, char c)
 	start = 0;
 	lenwd = 0;
 	i = 0;
+	if (! s)
+		return (NULL);
 	countwd = ft_countwd(s, c);
 	tab = (char **)malloc((countwd + 1) * sizeof(char *));
 	if (! tab)
