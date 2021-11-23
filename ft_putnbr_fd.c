@@ -6,7 +6,7 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 18:47:26 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/08 19:23:32 by fred             ###   ########.fr       */
+/*   Updated: 2021/11/23 15:17:52 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		n *= -1;
 		ft_putnbr_fd(n, fd);
+		return ;
 	}
 	if (n > 9)
 	{
