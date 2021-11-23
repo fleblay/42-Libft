@@ -6,7 +6,7 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:35:10 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/10 15:19:40 by fle-blay         ###   ########.fr       */
+/*   Updated: 2021/11/23 19:12:25 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,28 @@ static size_t	ft_lenskp(char const *s, int *start, char c, int skip)
 	return (len);
 }
 
+static void	*ft_destroytab(char **tab, int index)
+{
+	int	i;
+
+	i = 0;
+	if (tab)
+	{
+		while (i < index)
+		{
+			if (tab[i])
+			{
+				free(tab[i]);
+				tab[i] = NULL;
+			}
+			i++;
+		}
+		free(tab);
+		tab = NULL;
+	}
+	return (tab);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
@@ -67,7 +89,6 @@ char	**ft_split(char const *s, char c)
 	int		lenwd;
 	int		i;
 
-	tab = NULL;
 	start = 0;
 	lenwd = 0;
 	i = 0;
@@ -81,6 +102,8 @@ char	**ft_split(char const *s, char c)
 	{
 		lenwd = ft_lenskp(s, &start, c, i);
 		tab[i] = ft_substr(s, start, lenwd);
+		if (! tab[i])
+			return (ft_destroytab(tab, i));
 		i++;
 	}
 	tab[i] = NULL;
