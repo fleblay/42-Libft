@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri_t.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 15:46:10 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/23 10:50:19 by fle-blay         ###   ########.fr       */
+/*   Created: 2021/11/08 18:29:31 by fle-blay          #+#    #+#             */
+/*   Updated: 2021/11/08 18:33:55 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+static void	ft_fx2(unsigned int i, char *c)
 {
-	size_t	i;
+	if (i % 2 == 0)
+		*c = ft_toupper(*c);
+}
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+int main(void)
+{
+
+	char	str1[] = "abcdefghij";
+	ft_striteri(str1, &ft_fx2);
+	printf("%s\n", str1);
+
+	return (0);
 }

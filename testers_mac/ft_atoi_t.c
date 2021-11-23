@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi_t.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 15:46:10 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/23 10:50:19 by fle-blay         ###   ########.fr       */
+/*   Created: 2021/11/06 18:52:29 by fle-blay          #+#    #+#             */
+/*   Updated: 2021/11/06 18:55:11 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+int main (void)
 {
-	size_t	i;
+	printf("ft_atoi('12345'): %d || atoi('12345'): %d\n", ft_atoi("12345"), atoi("12345"));
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	return (0);
 }

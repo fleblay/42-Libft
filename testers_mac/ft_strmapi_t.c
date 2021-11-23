@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi_t.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 15:46:10 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/23 10:50:19 by fle-blay         ###   ########.fr       */
+/*   Created: 2021/11/08 18:16:08 by fle-blay          #+#    #+#             */
+/*   Updated: 2021/11/08 18:21:14 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+static char	ft_fx(unsigned int i, char c)
 {
-	size_t	i;
+	if (i % 2 == 0)
+		return(ft_toupper(c));
+	return (c);
+}
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+int main(void)
+{
+
+	printf("ft_strmapi('abcdefghi', &ft_fx) : %s\n", ft_strmapi("abcdefghi", &ft_fx));
+
+	return (0);
 }

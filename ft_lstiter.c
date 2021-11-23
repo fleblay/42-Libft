@@ -6,13 +6,13 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:41:34 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/10 11:51:40 by fle-blay         ###   ########.fr       */
+/*   Updated: 2021/11/23 10:53:54 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void(*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (! (*f))
 		return ;

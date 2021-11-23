@@ -6,7 +6,7 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:30:42 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/10 15:07:56 by fle-blay         ###   ########.fr       */
+/*   Updated: 2021/11/23 10:54:43 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	if (! s)
-		 return (NULL);
+		return (NULL);
 	subs = NULL;
 	if (start > ft_strlen(s))
 		lensub = 0;
