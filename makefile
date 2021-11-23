@@ -56,7 +56,7 @@ all : ${NAME}
 ${NAME} : ${OBJS} ${HEADER}
 	ar -rc ${NAME} ${OBJS}
 
-bonus : ${BONUS_OBJS}
+bonus : ${NAME} ${BONUS_OBJS}
 	ar -rc ${NAME} ${BONUS_OBJS}
 
 %.o : %.c
