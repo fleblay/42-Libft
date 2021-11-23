@@ -43,6 +43,7 @@ ft_lstclear.c\
 ft_lstiter.c\
 ft_lstmap.c
 
+HEADER = libft.h
 OBJS = ${SRCS:.c=.o}
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 NAME = libft.a
@@ -52,7 +53,7 @@ CFLAGS=-Wall -Wextra -Werror
 
 all : ${NAME}
 
-${NAME} : ${OBJS}
+${NAME} : ${OBJS} ${HEADER}
 	ar -rc ${NAME} ${OBJS}
 
 bonus : ${BONUS_OBJS}
