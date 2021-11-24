@@ -1,0 +1,3 @@
+Utiliser les flags -fsanitize=address -g dans le makefile de la libft avant
+de lancer les testeurs !
+Utiliser warmachine et checker les raisons des erreurs en essayant de la recreer.
