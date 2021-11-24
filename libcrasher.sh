@@ -45,8 +45,8 @@ function test_fx ()
 		return 1
 	fi
 	verbose \
-	&& echo "Running : gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -lbsd -o ft_${1}_t"
-	gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -lbsd -o ft_${1}_t
+	&& echo "Running : gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -lbsdmini -o ft_${1}_t"
+	gcc -Wall -Wextra -Werror testers/ft_${1}_t.c -I . -L . -lft -lbsdmini -o ft_${1}_t
 	if [ $? -eq 0 ]
 	then
 		verbose && dispres "Compilation test_${1}" OK
@@ -114,7 +114,8 @@ test_makefile bonus
 
 for fx in $TESTFILES
 do
-	test_fx ${fx:3:-2}
+	#test_fx ${fx:3:-2}
+	test_fx ${fx:3:${#fx}-5}
 done
 
 verbose && make fclean || make -s fclean

@@ -6,12 +6,13 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:51:10 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/04 14:56:07 by fle-blay         ###   ########.fr       */
+/*   Updated: 2021/11/24 09:58:20 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <bsd/string.h>
+//#include <bsd/string.h>
+#include "bsdmini.h"
 #include <stdio.h>
 
 int main (void)
