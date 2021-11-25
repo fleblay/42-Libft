@@ -6,7 +6,7 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:02:59 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/10 15:18:19 by fle-blay         ###   ########.fr       */
+/*   Updated: 2021/11/25 10:07:56 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = 0;
 	end = 0;
 	trim = NULL;
-	if (! s1)
+	if (! s1 || !set)
 		return (NULL);
 	while (s1[start] && ft_isamong(s1[start], set))
 		start++;
-	if (ft_strlen(s1) == 1)
+	if (ft_strlen(s1) <= 1)
 		return (ft_substr(s1, 0, 0));
-	while (s1[ft_strlen(s1) - 1 - end] \
+	while (end < ft_strlen(s1) && s1[ft_strlen(s1) - 1 - end]
 		&& ft_isamong(s1[ft_strlen(s1) - 1 - end], set))
 		end++;
 	trim = ft_substr(s1, start, ft_strlen(s1) - start - end);
