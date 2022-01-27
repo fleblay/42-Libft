@@ -31,7 +31,8 @@ ft_strrchr.c\
 ft_strtrim.c\
 ft_substr.c\
 ft_tolower.c\
-ft_toupper.c
+ft_toupper.c\
+ft_strjoin2.c
 
 BONUS_SRCS = ft_lstnew.c\
 ft_lstadd_front.c\
@@ -49,7 +50,8 @@ BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 NAME = libft.a
 
 CC = gcc
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror -fsanitize=address -g3
 
 all : ${NAME}
 
