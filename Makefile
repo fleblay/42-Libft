@@ -45,7 +45,9 @@ ft_lstdelone.c\
 ft_lstclear.c\
 ft_lstiter.c\
 ft_lstmap.c\
-get_next_line.c
+get_next_line.c\
+ft_isatoiable.c\
+ft_satoi.c
 
 HEADER = libft.h
 OBJS = ${SRCS:.c=.o}

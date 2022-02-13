@@ -6,7 +6,7 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 14:29:40 by fle-blay          #+#    #+#             */
-/*   Updated: 2022/02/03 12:28:25 by fle-blay         ###   ########.fr       */
+/*   Updated: 2022/02/12 14:31:25 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*ft_strjoin2(char const *s1, char const *s2, char const *s3);
 char	*ft_strstr(const char *big, const char *little);
+int		is_atoiable(char **tab);
+long	ft_satoi(const char *nptr, int *error);
 
 # define BUFFER_SIZE 1
 
