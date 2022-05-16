@@ -19,11 +19,13 @@ ft_putstr_fd.c\
 ft_split.c\
 ft_strchr.c\
 ft_strdup.c\
+ft_strndup.c\
 ft_striteri.c\
 ft_strjoin.c\
 ft_strlcat.c\
 ft_strlcpy.c\
 ft_strlen.c\
+ft_strnlen.c\
 ft_strmapi.c\
 ft_strncmp.c\
 ft_strnstr.c\
@@ -46,6 +48,7 @@ ft_lstclear.c\
 ft_lstiter.c\
 ft_lstmap.c\
 get_next_line.c\
+sget_next_line.c\
 ft_isatoiable.c\
 ft_satoi.c
 
