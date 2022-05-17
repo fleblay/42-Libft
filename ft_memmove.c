@@ -6,7 +6,7 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:35:44 by fle-blay          #+#    #+#             */
-/*   Updated: 2021/11/10 15:49:44 by fle-blay         ###   ########.fr       */
+/*   Updated: 2022/05/17 15:43:28 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_destoverlap(void *dest, const void *src, size_t n)
 
 static void	*ft_revmemcpy(void *dest, const void *src, size_t n)
 {
-	if (dest == NULL && src == NULL)
+	if (dest == NULL || src == NULL)
 		return (NULL);
 	while (n > 0)
 	{
