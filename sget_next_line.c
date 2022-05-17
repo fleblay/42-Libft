@@ -6,12 +6,13 @@
 /*   By: fle-blay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 10:11:39 by fle-blay          #+#    #+#             */
-/*   Updated: 2022/05/16 18:22:00 by fle-blay         ###   ########.fr       */
+/*   Updated: 2022/05/17 12:24:40 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
+#include "libft.h"
 
 char	*find_nl(char *str)
 {
@@ -40,7 +41,7 @@ int	load_input(int fd, char **line, char *buf, int buffer_size)
 	line_size = ft_strlen(*line);
 	appended_line = malloc((line_size + read_ret + 1) * sizeof(char));
 	if (!appended_line)
-		return (-1);
+		return (-2);
 	appended_line[line_size + read_ret] = '\0';
 	i = -1;
 	while (++i < line_size)
@@ -78,21 +79,20 @@ int	sget_next_line(char **next_line, int fd)
 	static char	buf[BUFFER_SIZE] = {};
 	char		*line;
 	int			load_ret;
+	int			cumul_read;
 
 	line = ft_strndup(buf, BUFFER_SIZE);
 	if (!line)
-		return (-1);
-	if (find_nl(line))
-		return (tailor_and_assign(&line, buf, BUFFER_SIZE, next_line), 1);
-	load_ret = load_input(fd, &line, buf, BUFFER_SIZE);
-	if (load_ret < 0 || (load_ret == 0 && !ft_strlen(line)))
-		return (free(line), load_ret);
-	if (find_nl(line))
-		return (tailor_and_assign(&line, buf, BUFFER_SIZE, next_line), 1);
-	while (load_ret > 0 && !find_nl(line))
+		return (-2);
+	load_ret = 1;
+	cumul_read = 0;
+	while (load_ret > 0 && !find_nl(line + cumul_read))
+	{
 		load_ret = load_input(fd, &line, buf, BUFFER_SIZE);
-	if (load_ret < 0)
-		return (free(line), -1);
+		cumul_read += load_ret;
+	}
+	if (load_ret < 0 || (!find_nl(line) && ft_strlen(line) == 0))
+		return (free(line), load_ret);
 	if (!find_nl(line))
 	{
 		ft_bzero(buf, BUFFER_SIZE);
@@ -102,10 +102,10 @@ int	sget_next_line(char **next_line, int fd)
 	return (tailor_and_assign(&line, buf, BUFFER_SIZE, next_line), 1);
 }
 
+/*
 #include <fcntl.h>
 #include <stdio.h>
 
-/*
 int main(int ac, char *av[])
 {
 	char	*ret;
@@ -118,12 +118,10 @@ int main(int ac, char *av[])
 	ret_value = sget_next_line(&ret, fd);
 	while (ret_value > 0)
 	{
-		printf("ret : [%s]\n", ret);
+		printf("%s", ret);
 		free(ret);
 		ret_value = sget_next_line(&ret, fd);
 	}
-	printf("ret : [%s]\n", ret);
-	free(ret);
 	return (0);
 }
 */

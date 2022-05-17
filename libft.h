@@ -6,7 +6,7 @@
 /*   By: fle-blay <fle-blay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 14:29:40 by fle-blay          #+#    #+#             */
-/*   Updated: 2022/05/16 18:15:10 by fle-blay         ###   ########.fr       */
+/*   Updated: 2022/05/17 11:53:40 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ long	ft_satoi(const char *nptr, int *error);
 # define BUFFER_SIZE 32
 
 char	*get_next_line(int fd);
-char	*sget_next_line(int fd);
+int		sget_next_line(char **next_line, int fd);
 
 #endif
