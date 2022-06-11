@@ -6,7 +6,7 @@
 /*   By: fle-blay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 14:26:50 by fle-blay          #+#    #+#             */
-/*   Updated: 2022/02/12 14:31:12 by fle-blay         ###   ########.fr       */
+/*   Updated: 2022/06/11 14:56:29 by fle-blay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ long	ft_satoi(const char *nptr, int *error)
 		i++;
 	if (! ft_isdigit(nptr[i]))
 	{
-		if (nptr[i] != '-' && nptr[i] != '+')
+		if (nptr[i] != '-' && nptr[i] != '+' && ++(*error))
 			return (nbr);
 		if (nptr[i] == '-')
 			sign = -1;
